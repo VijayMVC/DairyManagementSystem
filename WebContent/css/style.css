@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+.container
+{
+	height: 2000px;
+	background:#1a5f64;	
+	color: purple;
+	
+}
+body
+{
+	background:red;
+	font-size: 13px;
+	font-family: sans-serif;
+	font-weight: bold;
+	
+	
+}
+
+
