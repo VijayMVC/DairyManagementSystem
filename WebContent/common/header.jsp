@@ -1,6 +1,6 @@
 <div class="row">
 <div class="col-sm-6">
-<img class="img-reponsive" src="../img/logo.png" alt="" style="width: 200px;height: 100px;"/>
+<img class="img-reponsive" src="../img/mentorlogo.png" alt="" style="width: 200px;height: 100px;"/>
 </div>
 <div class="col-sm-6">
 <nav class="navbar">

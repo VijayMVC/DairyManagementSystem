@@ -7,6 +7,14 @@
 <title>Insert title here</title>
  <link href="../css/bootstrap.min.css" rel="stylesheet">
  <link href="../css/style.css" rel="stylesheet">
+ <%
+String pwd=(String)session.getAttribute("tsession");
+if(pwd==null)
+{
+	response.sendRedirect("../login.jsp");
+}
+
+%>
 </head>
 <body>
 <div class="container">

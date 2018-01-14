@@ -22,6 +22,7 @@ public class Customer {
 		int sucess=dao.addCustomer(cus);
 		if(sucess>0)
 		{
+			
 			System.out.println("You are sucessfully inserted customer");
 		}
 	}
