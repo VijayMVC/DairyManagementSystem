@@ -1,7 +1,10 @@
-<%@page import="org.springframework.beans.factory.annotation.Autowired"%>
-<%@page import="com.mentor.beans.AddProductBeans"%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="java.util.List"%>
-<%@page import="com.mentor.Dao.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
         <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
@@ -40,22 +43,38 @@ if(pwd==null)
             <div class="panel-body" >
                 <form method="post" action="addmilk.dairy">
                
-               
+               <%
+               Class.forName("com.mysql.jdbc.Driver");
+               Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/db_dairy","root","");
+               Statement stmt=con.createStatement();
+               ResultSet rs=stmt.executeQuery("select *from product");
+          
+              
+               %>
                        <div id="div_id_username" class="form-group required">
                             <label for="id_username" class="control-label col-md-4  requiredField">Product Name:<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
                     
                               <select class="form-control" id="sel1" name="pdname" style="margin-bottom: 10px;">
-                                 <option>Cow Milk</option>
-                                 <option>Buffalow Milk</option>
+                              <%while(rs.next())
+                              {
+                              %>
+                                 <option><%=rs.getString(4) %></option>
+                                      <%} %>
                                      </select>
-                                  
+                               
                             </div>
+                                  <%
+                        
+                     LocalDate date=LocalDate.now();
+                     String date1= date.toString();
+                        
+                        %>
                         </div>
                         <div id="div_id_email" class="form-group required">
                             <label for="id_email" class="control-label col-md-4  requiredField">Import Date:<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md emailinput form-control" id="id_email" name="pdimpdate" placeholder="Rate" style="margin-bottom: 10px" type="date" />
+                                <input class="input-md emailinput form-control" id="id_email" name="pdimpdate" value="<%=date1 %>" placeholder="Rate" style="margin-bottom: 10px" type="date" />
                             </div>     
                         </div>
                
